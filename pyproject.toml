@@ -1,12 +1,14 @@
 [tool.poetry]
 name = "scripts"
 version = "0.1.0"
-description = "Scripts"
+description = "Scripts for DMTA"
 authors = ["darkman <darkman@meganet.ru>"]
 license = "GPLv3"
 
 [tool.poetry.dependencies]
 python = "^3.9"
+colorlog = "^6.4.1"
+requests = "^2.26.0"
 
 [tool.poetry.dev-dependencies]
 
