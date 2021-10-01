@@ -6,7 +6,7 @@ from queue import Queue
 log = logging.getLogger('process')
 
 class Process:
-    def __init__(self, ip_addr: str):
+    def __init__(self, ip_addr):
         self.ip = ip_addr
 
     def run(self):
