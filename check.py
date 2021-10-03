@@ -6,6 +6,7 @@ import colorlog
 
 from os import isatty
 from sys import argv
+from getopt import getopt
 
 from lib.Process import Process
 
@@ -34,9 +35,24 @@ def log_setup():
     ch.setFormatter(f)
     root.addHandler(ch)
 
-log_setup()
+def main_proc():
+    log = logging.getLogger('Main process')
+    opt, args = getopt(argv[1:], 't:a:', ['thread=', 'ipaddr='])
 
-proc = Process(ip_addr='192.168.0.1')
+    thread = None
+    ip = None
+
+    for key, val in opt:
+        if key in ('-t', '--thread'):
+            thread = int(val)
+        elif key in ('-a', '--ipaddr'):
+            ip = val
+        else:
+            log.error('Something Wrong')
+
+    proc = Process(th_num=thread, ip_addr=ip)
+    proc.run()
 
 if __name__ == '__main__':
-    proc.run()
+    log_setup()
+    main_proc()

@@ -9,6 +9,7 @@ license = "GPLv3"
 python = "^3.9"
 colorlog = "^6.4.1"
 requests = "^2.26.0"
+dnspython = "^2.1.0"
 
 [tool.poetry.dev-dependencies]
 
